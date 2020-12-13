@@ -4,7 +4,8 @@ Hence it is desirable to have a method thar converges as fast as Newton's method
 ```math
 SE = \frac{\sigma}{\sqrt{n}}
 ``` 
-$$m = \frac{f(x_1) - f(x_0) }{x_1 - x_0} = \frac{f(x_2) - f(x_1) }{x_2 - x_1}  =  \frac{0 - f(x_1) }{x_2 - x_1}$$$$x_2-x_1 = \frac{-f(x_1)*(x_1 - x_0)}{f(x_1) - f(x_0)}$$$$x_2=x_1 - \frac{f(x_1)*(x_1 - x_0)}{f(x_1) - f(x_0)}$$
+![f(x0)](https://latex.codecogs.com/gif.latex?m%20=%20\frac{f(x_1)%20-%20f(x_0)}{x_1%20-%20x_0}%20=%20\frac{f(x_2)%20-%20f(x_1)%20}{x_2%20-![f(x0)](https://latex.codecogs.com/gif.latex?x_1)x_1}%20%20=%20\frac{0%20-%20f(x_1)%20}{x_2%20-%20x_1})
+$$x_2-x_1 = \frac{-f(x_1)*(x_1 - x_0)}{f(x_1) - f(x_0)}$$$$x_2=x_1 - \frac{f(x_1)*(x_1 - x_0)}{f(x_1) - f(x_0)}$$
 Or in general the iterative process can be written as
 $$x_(i+1) = x_i \frac{f(x_i) * (x_i - x_(i-1))}{f(x_i) - f(x_(i-1))}$$$$i = 1, 2, 3, 4...$$
 This formula is similar to `Regular-Falsi` scheme of root bracketing methods but differs in the implementation. The  `Regular-Falsi` method begins with the two initial approximations "a" and "b" sush that, $a\leqslant s\leqslant b$ where "s" is the root of $f(x) = 0$. It proceeds to the next iteration by calculating $c(x_2)$ using the above formula and then chooses one fo the interval $(a,c)$ or $(c,h)$ on $f(a) * f(c) < 0$ or $>0$ respectively. On teh other hand secant method starts with two initial approximation $x_0$ and $x_1$ and then calculates the $x_2$ by the same formula as in `Regular-Falsi` Method but proceeds to the next iteration without bothering about any root bracketing.
